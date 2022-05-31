@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login/callback/facebook', [ApiSocialUserLogin::class, 'socialLogin']);
+Route::get('/login/facebook', function () {
+    return Socialite::driver('facebook')->redirect();
+});
